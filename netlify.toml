@@ -20,3 +20,17 @@
       base-uri 'self';
       form-action 'self' https://docs.google.com;
     """
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = """
+      default-src 'self';
+      frame-src 'self' https://www.google.com https://docs.google.com;
+      img-src 'self' data: https://ui-avatars.com https://*.googleusercontent.com https://*.gstatic.com https://*.googleapis.com https://*.google.com;
+      style-src 'self' 'unsafe-inline';
+      script-src 'self';
+      connect-src 'self';
+      base-uri 'self';
+      form-action 'self' https://docs.google.com;
+    """
