@@ -1,0 +1,226 @@
+/* ===========================
+   MiNegocio Digital - styles.css
+   Paleta basada en el logo.
+   =========================== */
+
+:root{
+  /* Paleta del logo */
+  --navy:#0E2A47;   /* primario (texto/brand) */
+  --red:#D52B1E;    /* acento */
+  --yellow:#FFCC00; /* acento */
+  --green:#007A33;  /* acento */
+  --tri: linear-gradient(90deg, var(--red) 0%, var(--yellow) 50%, var(--green) 100%);
+
+  /* UI */
+  --ink:#0E2A47;
+  --muted:#475569;
+  --bg:#ffffff;
+  --alt:#f7fafc;
+  --border:#e6e9ef;
+  --radius:16px;
+  --shadow:0 8px 28px rgba(2,6,23,.08);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.55;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%; display:block}
+a{color:var(--navy); text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible, button:focus-visible, .btn:focus-visible{
+  outline:3px solid rgba(21,56,95,.35); outline-offset:2px;
+}
+.container{width:min(1120px,92%); margin-inline:auto}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:#fff; border-bottom:1px solid var(--border);
+  backdrop-filter:saturate(1.1) blur(6px);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:10px 0}
+.brand{display:inline-flex; align-items:center; gap:12px; color:var(--navy); font-weight:800; letter-spacing:.2px}
+.brand__img{height:40px; width:auto}
+.brand__txt{display:none}
+@media (min-width:640px){ .brand__txt{display:inline-block} }
+
+.menu{display:flex; gap:18px; align-items:center}
+.menu a{padding:10px 12px; border-radius:12px; color:var(--ink)}
+.menu a:hover{background:#f1f5f9; text-decoration:none}
+.menu-btn{display:none; background:none; border:0; cursor:pointer}
+.menu-btn span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0; border-radius:2px}
+@media (max-width: 880px){
+  .menu-btn{display:inline-block}
+  .menu{position:absolute; right:4%; top:64px; background:#fff; padding:12px; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); display:none; flex-direction:column}
+  .menu.show{display:flex}
+}
+
+/* Botones */
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:14px;
+  background:linear-gradient(180deg, var(--navy) 0%, #15385f 100%);
+  color:#fff; font-weight:700; text-decoration:none; box-shadow:0 8px 24px rgba(14,42,71,.18);
+  transform:translateZ(0); transition:transform .06s ease, filter .2s ease;
+  border:1px solid transparent;
+}
+.btn:hover{filter:brightness(.97); text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn--ghost{background:#fff; color:var(--navy); border-color:var(--navy)}
+.btn--block{display:block; text-align:center}
+
+/* Hero */
+.hero{
+  padding:46px 0 10px;
+  background:
+    radial-gradient(800px 300px at 90% 0%, rgba(255,204,0,.10) 0, transparent 60%),
+    radial-gradient(600px 260px at 0% 100%, rgba(213,43,30,.08) 0, transparent 60%),
+    linear-gradient(180deg,#ffffff 0%, #f8fbff 70%, #ffffff 100%);
+}
+.hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center}
+.hero__copy h1{font-size: clamp(28px, 3.6vw, 44px); line-height:1.12; margin:0 0 10px; color:var(--navy)}
+.lead{color:var(--muted); font-size: clamp(16px, 1.6vw, 18px)}
+.cta{display:flex; gap:12px; margin:18px 0 8px}
+.hero__img img{width:100%; height:auto; border-radius:18px; box-shadow:var(--shadow); object-fit:cover}
+@media (max-width: 900px){ .hero__grid{grid-template-columns:1fr; gap:18px}}
+
+/* Barra tricolor bajo el hero */
+.accent{height:6px; width:100%; background:var(--tri)}
+
+/* Badges */
+.hero__badges{display:flex; gap:12px; padding:8px 0 0}
+.badge{
+  display:inline-block; font-size:14px; font-weight:700; padding:7px 10px; border-radius:999px;
+  color:#0b172a; border:1px solid #dbeafe; background:#eef6ff;
+}
+.badge--tri{
+  border-color:#e9ecef;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    var(--tri) border-box;
+  border:1px solid transparent;
+}
+
+/* Secciones */
+.section{padding:56px 0}
+.section--alt{background:var(--alt)}
+.section--tight{padding:40px 0}
+.section__title{font-size: clamp(22px, 2.4vw, 28px); margin:0 0 6px; color:var(--navy)}
+.section__subtitle{color:var(--muted); margin:0 0 22px}
+
+/* Grid y Cards */
+.grid{display:grid; gap:18px}
+.cards{grid-template-columns:repeat(4,1fr)}
+@media (max-width: 1024px){ .cards{grid-template-columns:repeat(2,1fr)} }
+@media (max-width: 560px){ .cards{grid-template-columns:1fr} }
+
+.card{
+  position:relative;
+  padding:18px; border:1px solid var(--border); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow);
+}
+.cards .card::before{
+  content:""; position:absolute; left:-1px; right:-1px; top:-1px; height:4px;
+  background:var(--tri); border-top-left-radius:var(--radius); border-top-right-radius:var(--radius);
+}
+.card h3{margin:0 0 6px; color:var(--ink); font-size:18px}
+.card p{margin:0; color:var(--muted)}
+
+/* Cómo trabajamos (fix padding + numeración) */
+.steps{
+  counter-reset: paso;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  list-style:none; padding:0; margin:0;
+}
+.steps li{
+  counter-increment: paso;
+  position:relative;
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:16px 16px 16px 56px;   /* espacio real y consistente */
+  min-height:84px;
+}
+.steps li::before{
+  content: counter(paso);
+  position:absolute; left:14px; top:14px;
+  width:28px; height:28px; border-radius:999px;
+  background:var(--tri);
+  color:#0e1b2b; font-weight:800; display:grid; place-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.steps strong{ color:var(--navy); }
+@media (max-width: 980px){ .steps{grid-template-columns:1fr 1fr} }
+@media (max-width: 560px){ .steps{grid-template-columns:1fr} }
+
+/* Pricing */
+.pricing{grid-template-columns:repeat(3,1fr)}
+@media (max-width: 960px){ .pricing{grid-template-columns:1fr} }
+
+.price{
+  position:relative;
+  border:1px solid var(--border); border-radius:16px; padding:18px; background:#fff; box-shadow:var(--shadow);
+}
+.price::before{
+  content:""; position:absolute; left:-1px; right:-1px; top:-1px; height:4px;
+  background:var(--tri); border-top-left-radius:16px; border-top-right-radius:16px;
+}
+.price header{display:flex; align-items:end; justify-content:space-between; gap:10px; margin-bottom:8px}
+.price__value{font-size:28px; font-weight:800; color:var(--navy)}
+.price__value small{font-weight:600; font-size:14px; color:var(--muted)}
+.price__list{margin:0 0 14px; padding-left:18px}
+.price--featured{outline:3px solid rgba(255,204,0,.65)}
+
+/* Equipo */
+.team{grid-template-columns:repeat(5,1fr)}
+@media (max-width: 1080px){ .team{grid-template-columns:repeat(3,1fr)} }
+@media (max-width: 640px){ .team{grid-template-columns:repeat(2,1fr)} }
+.person{
+  background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow);
+  padding:14px; text-align:center;
+}
+.person img{border-radius:12px; margin:0 auto 10px}
+.person h3{margin:0; font-size:16px; color:var(--ink)}
+.person .role{margin:2px 0 0; font-size:13px; color:var(--muted)}
+
+/* Form (MVP) */
+.form-embed iframe{border-radius:14px; border:1px solid var(--border)}
+
+/* Footer */
+.site-footer{padding:28px 0; border-top:1px solid var(--border); color:#64748b; background:#fff}
+.footer__grid{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px}
+.teamline{font-size:13px}
+.link{color:var(--navy)}
+.center{text-align:center}
+.hint{color:var(--muted); margin-top:12px}
+
+/* Accesibilidad/Utilidades */
+.visually-hidden{
+  position:absolute!important; height:1px;width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px);
+  white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+
+/* Movimientos reducidos */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
+
+/* ===== Stats (Impacto) ===== */
+.stats{grid-template-columns:repeat(3,1fr)}
+@media (max-width: 860px){ .stats{grid-template-columns:1fr 1fr} }
+@media (max-width: 520px){ .stats{grid-template-columns:1fr} }
+.stat{padding:22px}
+.stat .sval{font-weight:800; font-size:28px; color:var(--navy); margin-bottom:6px}
+.stat .slabel{color:var(--muted)}
+
+/* ===== FAQ accesible (sin JS) ===== */
+.faq{display:grid; gap:12px}
+.faq details{
+  background:#fff; border:1px solid var(--border); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow)
+}
+.faq summary{cursor:pointer; font-weight:700; color:var(--navy); outline:none}
+.faq p{margin:8px 0 0; color:var(--muted)}
