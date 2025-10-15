@@ -239,3 +239,60 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   border:1px solid var(--border); box-shadow:var(--shadow);
 }
 .map-embed iframe{width:100%; height:420px; border:0}
+
+
+/* ===== Contact Hero (diferente al main) ===== */
+.contact-hero{position:relative; padding:0; background:#fff}
+.contact-hero__ribbon{height:8px; background:var(--tri)}
+
+.contact-hero__grid{
+  display:grid;
+  grid-template-columns: 520px 1fr;  /* contenido izq / visual der */
+  gap:0;
+  align-items:stretch;
+}
+
+.contact-hero__content{
+  background:#fff;
+  padding:42px 32px;
+  border-right:1px solid var(--border);
+  box-shadow:0 12px 30px rgba(2,6,23,.04);
+}
+
+.contact-hero__media{
+  min-height:360px;
+  padding:24px;
+  /* fondo distinto al main */
+  background:
+    radial-gradient(700px 300px at 90% 0%, rgba(255,204,0,.16), transparent 60%),
+    radial-gradient(700px 300px at 10% 100%, rgba(213,43,30,.12), transparent 60%),
+    linear-gradient(180deg, #f4f9ff 0%, #ffffff 100%);
+  display:flex; align-items:flex-end; justify-content:flex-end;
+}
+
+.contact-hero__media .frame{
+  width:min(92%, 680px);
+  border-radius:18px;
+  background:#fff;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.contact-hero__media .frame img{display:block; width:100%; height:auto}
+
+/* Placeholder si no carga la imagen */
+.contact-hero__media .frame.placeholder{
+  display:grid; place-items:center;
+  min-height:240px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    var(--tri) border-box;
+  border:1px solid transparent;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .contact-hero__grid{grid-template-columns:1fr}
+  .contact-hero__content{border-right:0; border-bottom:1px solid var(--border)}
+  .contact-hero__media{min-height:260px; padding:16px}
+}
