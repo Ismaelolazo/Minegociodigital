@@ -1,5 +1,5 @@
 // ===== Config =====
-const WHATSAPP_NUMBER = "59170000000";
+const WHATSAPP_NUMBER = "59174036486";
 const DEFAULT_MESSAGE = "Hola MiNegocio Digital, quiero digitalizar mi negocio.";
 const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfCPbewoXU4p2ep_cgCMGQp0spACOvnRkwR-tutj0z0fA22jA/viewform?usp=header";
 
